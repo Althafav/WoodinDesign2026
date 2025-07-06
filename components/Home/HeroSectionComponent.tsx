@@ -1,6 +1,7 @@
 import { Homepagesaudi } from "@/models/homepagesaudi";
 import React from "react";
 import { FaCalendar, FaTrophy, FaUsers } from "react-icons/fa";
+import SplitTextGSAP from "../UI/SplitTextGSAP";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
@@ -25,9 +26,15 @@ const HeroSectionComponent: React.FC<PageDataProps> = ({ pageData }) => {
       {/* Main Content */}
       <div className="relative z-10 text-center text-white px-4 flex-1 flex flex-col justify-end py-20">
         <div className="space-y-8">
-          {/* Main Title */}
+         
+
           <h1 className="text-6xl lg:text-8xl tracking-wider leading-none">
-            {pageData.bannerheading.value}
+            <SplitTextGSAP
+              text={pageData.bannerheading.value}
+              type="words,chars"
+              animation="words"
+              className="inline-block"
+            />
           </h1>
 
           {/* Subtitle */}
@@ -45,10 +52,10 @@ const HeroSectionComponent: React.FC<PageDataProps> = ({ pageData }) => {
 
           {/* Register Button */}
           <div className="pt-4">
-                <button className="bg-primary-saudi hover:bg-green-600 text-white text-lg px-12 py-3 rounded-full tracking-wide">
-                  Register Now
-                </button>
-              </div>
+            <button className="bg-primary-saudi hover:bg-green-600 text-white text-lg px-12 py-3 rounded-full tracking-wide">
+              Register Now
+            </button>
+          </div>
         </div>
       </div>
 
