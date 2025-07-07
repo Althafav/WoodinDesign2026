@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 
 type SplitTextGSAPProps = {
   text: string;
-  type?: string; // e.g. "chars,words,lines"
+  type?: string; 
   animation?: "chars" | "words" | "lines";
   className?: string;
   animationProps?: Record<string, any>;

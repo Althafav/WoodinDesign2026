@@ -28,9 +28,9 @@ export default function Page({ pageData }: PageProps) {
       smoother = ScrollSmoother.create({
         wrapper: wrapperRef.current,
         content: contentRef.current,
-        smooth: 1,            // core option from docs :contentReference[oaicite:4]{index=4}
-        effects: true,        // auto parallax via data-speed attribs :contentReference[oaicite:5]{index=5}
-        normalizeScroll: true // optional: avoids mobile address-bar jitter :contentReference[oaicite:6]{index=6}
+        smooth: 1,            
+        effects: true,        
+        normalizeScroll: true
       });
     }
 
@@ -38,6 +38,7 @@ export default function Page({ pageData }: PageProps) {
 
     return () => smoother?.kill();
   }, []);
+  
 
   if (!pageData) return <SpinnerComponent />;
 
