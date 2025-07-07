@@ -7,6 +7,8 @@ import AboutSection from "@/components/Home/AboutSection";
 import AgendaSection from "@/components/Home/AgendaSection";
 import AwardsSection from "@/components/Home/AwardSection";
 import { GetServerSideProps } from "next";
+import WorkshopsSection from "@/components/Home/WorkshopSection";
+import UpcomingSection from "@/components/Home/UpcomingSection";
 
 type PageProps = { pageData: Homepagesaudi | null };
 
@@ -28,9 +30,9 @@ export default function Page({ pageData }: PageProps) {
       smoother = ScrollSmoother.create({
         wrapper: wrapperRef.current,
         content: contentRef.current,
-        smooth: 1,            
-        effects: true,        
-        normalizeScroll: true
+        smooth: 1,
+        effects: true,
+        normalizeScroll: true,
       });
     }
 
@@ -38,7 +40,6 @@ export default function Page({ pageData }: PageProps) {
 
     return () => smoother?.kill();
   }, []);
-  
 
   if (!pageData) return <SpinnerComponent />;
 
@@ -49,7 +50,9 @@ export default function Page({ pageData }: PageProps) {
           <HeroSectionComponent pageData={pageData} />
           <AboutSection pageData={pageData} />
           <AgendaSection pageData={pageData} />
+          <WorkshopsSection />
           <AwardsSection />
+          <UpcomingSection pageData={pageData}/>
         </div>
       </div>
     </div>
