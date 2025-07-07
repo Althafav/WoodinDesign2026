@@ -20,7 +20,7 @@ export default function MenuComponent() {
         <img
           src={pageData?.poweredbylogo.value[0]?.url}
           alt=""
-          className="bg-white p-5 w-24 object-contain rounded-br-2xl"
+          className="bg-white p-5 w-44 sm:w-52 object-contain rounded-br-2xl"
         />
       </div>
     </header>

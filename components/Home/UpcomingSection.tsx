@@ -29,7 +29,7 @@ const UpcomingSection: React.FC<PageDataProps> = ({ pageData }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
             {pageData.upcomingitems.value.map((item: any, index: number) => {
               return (
-                <div>
+                <div key={index}>
                   <img
                     className="w-[300px] object-contain"
                     src={item.image.value[0]?.url}
