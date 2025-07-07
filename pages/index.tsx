@@ -2,13 +2,26 @@ import React, { useEffect, useRef } from "react";
 import SpinnerComponent from "@/components/UI/SpinnerComponent";
 import Globals from "@/modules/Globals";
 import { Homepagesaudi } from "@/models/homepagesaudi";
-import HeroSectionComponent from "@/components/Home/HeroSectionComponent";
-import AboutSection from "@/components/Home/AboutSection";
-import AgendaSection from "@/components/Home/AgendaSection";
-import AwardsSection from "@/components/Home/AwardSection";
+
 import { GetServerSideProps } from "next";
-import WorkshopsSection from "@/components/Home/WorkshopSection";
-import UpcomingSection from "@/components/Home/UpcomingSection";
+
+import AboutSection2 from "@/components/Home/v2/AboutSection2";
+import UpcomingSection2 from "@/components/Home/v2/UpcomingSection2";
+import AwardSection2 from "@/components/Home/v2/AwardSection2";
+import WorkshopSection2 from "@/components/Home/v2/WorkshopSection2";
+import TargetAudientSection from "@/components/Home/v2/TargetAudientSection";
+import WhyAttendSection from "@/components/Home/v2/WhyAttendSection";
+import AgendaSection2 from "@/components/Home/v2/AgendSection2";
+import SaudiVisionSection from "@/components/Home/v2/SaudiVisionSection";
+
+import dynamic from "next/dynamic";
+
+const DynamicHeroSection = dynamic(
+  () => import("@/components/Home/v2/HeroSection2"),
+  {
+    ssr: false,
+  }
+);
 
 type PageProps = { pageData: Homepagesaudi | null };
 
@@ -47,12 +60,15 @@ export default function Page({ pageData }: PageProps) {
     <div id="smooth-wrapper" ref={wrapperRef}>
       <div id="smooth-content" ref={contentRef}>
         <div className="homepage">
-          <HeroSectionComponent pageData={pageData} />
-          <AboutSection pageData={pageData} />
-          <AgendaSection pageData={pageData} />
-          <WorkshopsSection />
-          <AwardsSection />
-          <UpcomingSection pageData={pageData}/>
+          <DynamicHeroSection pageData={pageData} />
+          <AboutSection2 pageData={pageData} />
+          <TargetAudientSection pageData={pageData} />
+          <WhyAttendSection pageData={pageData} />
+          <SaudiVisionSection pageData={pageData} />
+          <AgendaSection2 pageData={pageData} />
+          <WorkshopSection2 pageData={pageData} />
+          <AwardSection2 pageData={pageData} />
+          <UpcomingSection2 pageData={pageData} />
         </div>
       </div>
     </div>

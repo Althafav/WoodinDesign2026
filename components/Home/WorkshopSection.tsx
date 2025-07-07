@@ -1,6 +1,14 @@
+import { Homepagesaudi } from "@/models/homepagesaudi";
 import { Globe, Heart, TreePine, Wrench } from "lucide-react";
 
-export default function WorkshopsSection() {
+interface PageDataProps {
+  pageData: Homepagesaudi | null;
+}
+
+const WorkshopSection: React.FC<PageDataProps> = ({ pageData }) => {
+  if (!pageData) {
+    return null;
+  }
   const participantBenefits = [
     {
       title: "Deep Understanding of Wood's Value",
@@ -51,11 +59,11 @@ export default function WorkshopsSection() {
             {/* Left Column - Description */}
             <div className="space-y-8">
               <div className="relative">
-                {/* <img
-                  src={workshopsImage}
+                <img
+                  src={pageData.workshopbackgroundimage.value[0]?.url}
                   alt="Workshop environment"
                   className="w-full h-64 object-cover rounded-2xl"
-                /> */}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl" />
               </div>
 
@@ -126,4 +134,6 @@ export default function WorkshopsSection() {
       </div>
     </section>
   );
-}
+};
+
+export default WorkshopSection;

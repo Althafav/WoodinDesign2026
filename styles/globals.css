@@ -7,7 +7,8 @@
   --color-primary-dubai: #BF0808;
   --color-primary-saudi: #39B54A;
   --color-primary-cairo: #e59450;
-  --color-BrownDark: #C89212;
+  --color-orangeWiD: #C89212;
+
 
 }
 
@@ -92,6 +93,19 @@ a, button{
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #ffffff;
   -webkit-text-stroke-color: #000000;
+  -webkit-text-stroke-linejoin: bevel;
+  -webkit-text-stroke-miterlimit: 1;
+
+  
+}
+
+.text-stroke-white {
+
+
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffffff;
+  -webkit-text-stroke-color: white;
   -webkit-text-stroke-linejoin: bevel;
   -webkit-text-stroke-miterlimit: 1;
 

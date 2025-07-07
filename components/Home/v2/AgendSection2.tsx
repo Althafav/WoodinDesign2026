@@ -8,7 +8,7 @@ interface PageDataProps {
   pageData: Homepagesaudi | null;
 }
 
-const AgendaSection: React.FC<PageDataProps> = ({ pageData }) => {
+const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
   const [selectedAgenda, setSelectedAgenda] = useState<Conferencedate | null>(
     () => {
       if (pageData && pageData.agendaitems.value.length > 0) {
@@ -56,25 +56,26 @@ const AgendaSection: React.FC<PageDataProps> = ({ pageData }) => {
       {/* Sessions */}
       <div className="max-w-4xl">
         {selectedAgenda && selectedAgenda.sessionitems.value.length > 0 ? (
-          <div className="grid grid-cols-1  gap-5">
+          <div className="grid grid-cols-1  gap-3">
             {selectedAgenda.sessionitems.value.map((m: any, index: number) => {
               const item: Sessionitem = m;
               return (
                 <div key={`session-${index}`} className="">
-                  <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition p-6">
-                    <div className="flex items-center text-sm text-gray-500 mb-3 gap-2">
-                      <FaCalendar size={14} />
-                      <span>{item.time.value}</span>
+                  <div className=" flex sm:flex-row flex-col items-start sm:gap-5">
+                    <div className=" text-black mb-3 w-full  sm:w-2/12">
+                      <p className="text-md font-medium whitespace-nowrap">{item.time.value}</p>
                     </div>
-                    <h3 className="text-lg font-semibold text-orangeWiD mb-2">
-                      {item.name.value}
-                    </h3>
-                    <div
-                      className="text-sm text-gray-700 leading-relaxed"
-                      dangerouslySetInnerHTML={{
-                        __html: item.content.value,
-                      }}
-                    />
+                    <div className=" w-full sm:w-10/12">
+                      <h3 className="text-lg font-semibold text-orangeWiD mb-2">
+                        {item.name.value}
+                      </h3>
+                      <div
+                        className="text-sm text-gray-700 leading-relaxed"
+                        dangerouslySetInnerHTML={{
+                          __html: item.content.value,
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               );
@@ -90,4 +91,4 @@ const AgendaSection: React.FC<PageDataProps> = ({ pageData }) => {
   );
 };
 
-export default AgendaSection;
+export default AgendaSection2;
