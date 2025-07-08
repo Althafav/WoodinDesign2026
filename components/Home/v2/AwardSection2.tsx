@@ -1,6 +1,7 @@
 import { Homepagesaudi } from "@/models/homepagesaudi";
 import React from "react";
 import { Award, Leaf, Star, Target, Trophy, Zap } from "lucide-react";
+import Link from "next/link";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
@@ -69,47 +70,56 @@ const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
           {/* Header */}
           <div className="text-left mb-16 w-full lg:w-1/2">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl award-section-heading-1 mb-6 font-bold">
-              Wood in Design Awards 2025
+              {pageData.awardheading.value}
             </h2>
             <p className="text-xl text-white mb-6 max-w-3xl mx-auto">
-              Celebrating Innovation, Sustainability &amp; Vision 2030 Impact
+              {pageData.awardsubheading.value}
             </p>
             <p className="text-gray-300 leading-relaxed ">
-              In recognition of excellence across the timber design ecosystem,
-              the Wood in Design Awards will honor individuals, teams, and
-              projects that exemplify the transformative role of wood in shaping
-              Saudi Arabia’s sustainable future — in line with Vision 2030 and
-              the Saudi Green Initiative.
+              {pageData.awarddescription.value}
             </p>
           </div>
 
           {/* Award Categories */}
           <div className="mb-16">
             <h3 className="text-3xl text-white mb-12 text-left">
-              Award Categories
+              {pageData.awardcategoryheading.value}
             </h3>
 
             <div className="flex justify-items-center">
               <div className="grid md:grid-cols-2 gap-8 ">
-                {awardCategories.map((award, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/10 backdrop-blur-sm border-green-400/20 hover:bg-white/20 rounded-2xl transition-all duration-300 transform hover:-translate-y-2"
-                  >
-                    <div className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div>
-                          <h4 className="text-xl font-medium award-section-heading-2 mb-3">
-                            {award.title}
-                          </h4>
-                          <p className="text-gray-200 text-sm leading-relaxed">
-                            {award.description}
-                          </p>
+                {pageData.awardcategoryitems.value.map(
+                  (item: any, index: number) => (
+                    <div
+                      key={index}
+                      className="bg-white/10 backdrop-blur-sm border-green-400/20 hover:bg-white/20 rounded-2xl transition-all duration-300 transform hover:-translate-y-2"
+                    >
+                      <div className="p-6">
+                        <div className="flex items-start space-x-4">
+                          <div>
+                            <h4 className="text-xl font-medium award-section-heading-2 mb-3">
+                              {item.name.value}
+                            </h4>
+                            <p className="text-gray-200 text-sm leading-relaxed">
+                              {item.description.value}
+                            </p>
+
+                            {item.ctabuttonlink.value && (
+                              <div className="mt-8">
+                                <Link
+                                  href={item.ctabuttonlink.value}
+                                  className="px-4 py-2 bg-orangeWiD rounded-full text-white"
+                                >
+                                  <span>{item.ctabuttonname.value}</span>
+                                </Link>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                )}
               </div>
             </div>
           </div>

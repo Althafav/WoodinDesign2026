@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://ifacglobal.com/
+Host: https://www.woodindesign.world/
 
 # Sitemaps
-Sitemap: https://ifacglobal.com/sitemap.xml
+Sitemap: https://www.woodindesign.world/sitemap.xml
