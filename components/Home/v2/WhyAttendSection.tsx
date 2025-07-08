@@ -10,7 +10,7 @@ const WhyAttendSection: React.FC<PageDataProps> = ({ pageData }) => {
     return null;
   }
   return (
-    <div className=" target-audience-section relative">
+    <div className=" target-audience-section relative ">
       <img src={pageData.patternimage.value[0]?.url} alt="" className="absolute right-0 bottom-0 w-1/3"/>
       <div className="herosection-wrapper-home relative w-full sm:h-[300px] overflow-hidden">
         <img
@@ -30,7 +30,7 @@ const WhyAttendSection: React.FC<PageDataProps> = ({ pageData }) => {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-10">
             {pageData.whyattenditems.value.map((item: any, index: number) => {
               return (
-                <div className="transition-all duration-300 transform hover:-translate-y-2">
+                <div key={index} className="transition-all duration-300 transform hover:-translate-y-2">
                   <div className="flex gap-5 items-start flex-col">
                     <p className="font-medium text-xl">{item.name.value}</p>
                     <div

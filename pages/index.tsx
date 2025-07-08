@@ -26,39 +26,39 @@ const DynamicHeroSection = dynamic(
 type PageProps = { pageData: Homepagesaudi | null };
 
 export default function Page({ pageData }: PageProps) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  // const wrapperRef = useRef<HTMLDivElement>(null);
+  // const contentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    let smoother: any;
+  // useEffect(() => {
+  //   let smoother: any;
 
-    async function initSmooth() {
-      if (!wrapperRef.current || !contentRef.current) return;
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      const { ScrollSmoother } = await import("gsap/ScrollSmoother");
+  //   async function initSmooth() {
+  //     if (!wrapperRef.current || !contentRef.current) return;
+  //     const { gsap } = await import("gsap");
+  //     const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+  //     const { ScrollSmoother } = await import("gsap/ScrollSmoother");
 
-      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  //     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-      smoother = ScrollSmoother.create({
-        wrapper: wrapperRef.current,
-        content: contentRef.current,
-        smooth: 1,
-        effects: true,
-        normalizeScroll: true,
-      });
-    }
+  //     smoother = ScrollSmoother.create({
+  //       wrapper: wrapperRef.current,
+  //       content: contentRef.current,
+  //       smooth: 1,
+  //       effects: true,
+  //       normalizeScroll: true,
+  //     });
+  //   }
 
-    initSmooth();
+  //   initSmooth();
 
-    return () => smoother?.kill();
-  }, []);
+  //   return () => smoother?.kill();
+  // }, []);
 
   if (!pageData) return <SpinnerComponent />;
 
   return (
-    <div id="smooth-wrapper" ref={wrapperRef}>
-      <div id="smooth-content" ref={contentRef}>
+    <div >
+      <div >
         <div className="homepage">
           <DynamicHeroSection pageData={pageData} />
           <AboutSection2 pageData={pageData} />
