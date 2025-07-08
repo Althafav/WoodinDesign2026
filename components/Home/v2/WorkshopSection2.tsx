@@ -103,7 +103,7 @@ const WorkshopSection2: React.FC<PageDataProps> = ({ pageData }) => {
                             cy="12"
                             r="11"
                             stroke="url(#paint0_linear_15_526)"
-                            stroke-width="2"
+                            strokeWidth="2"
                           />
                           <defs>
                             <linearGradient
@@ -114,8 +114,8 @@ const WorkshopSection2: React.FC<PageDataProps> = ({ pageData }) => {
                               y2="12"
                               gradientUnits="userSpaceOnUse"
                             >
-                              <stop stop-color="#623D21" />
-                              <stop offset="1" stop-color="white" />
+                              <stop stopColor="#623D21" />
+                              <stop offset="1" stopColor="white" />
                             </linearGradient>
                           </defs>
                         </svg>

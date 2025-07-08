@@ -2,6 +2,7 @@ import { Homepagesaudi } from "@/models/homepagesaudi";
 import React from "react";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
@@ -39,13 +40,13 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
       />
 
       {/* Main Content */}
-      <motion.div
-        initial={{ x: -300, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
-        className="relative z-10 text-start text-white px-4 flex-1 flex flex-col items-start justify-end py-20"
-      >
-        <div className="max-w-[400px]">
+      <div className="relative z-10 text-start text-white px-4 flex-1 flex flex-col  justify-end py-20">
+        <motion.div
+          initial={{ x: -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
+          className="max-w-[450px]"
+        >
           <p className="text-4xl">Designing for Wellness:</p>
 
           <div className="text-3xl font-medium">
@@ -54,8 +55,44 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
               Resilience, Restoration, and Renaissance
             </p>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ x: -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 1.2,
+            delay: 1.2,
+            type: "tween"
+          }}
+          className="mt-10"
+        >
+          {pageData.ctabutton.value.map((item: any, index: number) => (
+            <Link
+              key={index}
+              href={item.link.value}
+              target={item.target.value === 1 ? "_blank" : "_self"}
+              className="inline-block"
+            >
+              <span
+                className="
+        text-2xl
+        bg-primary-saudi
+        px-6 py-3
+        rounded-full
+        shadow-[0_0_20px_rgba(34,197,94,0.6)]
+        transition-transform duration-300 ease-out
+        transform
+        hover:scale-105
+        hover:shadow-[0_0_25px_rgba(34,197,94,0.8)]
+      "
+              >
+                {item.name.value}
+              </span>
+            </Link>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };
