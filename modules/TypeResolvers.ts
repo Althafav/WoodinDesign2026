@@ -8,6 +8,6 @@ const KontentDelivery = require("@kentico/kontent-delivery");
 
 
 export const TypeResolver = [
-  new KontentDelivery.TypeResolver("Homepageglobal2026", (rawData: any) => new Homepagesaudi()),
+  new KontentDelivery.TypeResolver("Homepagesaudi", (rawData: any) => new Homepagesaudi()),
 
 ];

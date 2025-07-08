@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://ifacglobal.com/",
+  siteUrl: "https://www.woodindesign.world/",
   generateRobotsTxt: true,
   sitemapSize: 100000,
   generateIndexSitemap: false,

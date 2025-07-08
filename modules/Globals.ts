@@ -30,7 +30,7 @@ export default class Globals {
         secureApiKey: Globals.WSG_SECURE_API_KEY,
        
     });
-    static SITE_NAME = "IFAC";
+    static SITE_NAME = "Wood In Design";
 
 
     static CURRENT_LANG_CODENAME: string = "default";

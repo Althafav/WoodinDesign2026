@@ -14,14 +14,8 @@ import WhyAttendSection from "@/components/Home/v2/WhyAttendSection";
 import AgendaSection2 from "@/components/Home/v2/AgendSection2";
 import SaudiVisionSection from "@/components/Home/v2/SaudiVisionSection";
 
-import dynamic from "next/dynamic";
-
-const DynamicHeroSection = dynamic(
-  () => import("@/components/Home/v2/HeroSection2"),
-  {
-    ssr: false,
-  }
-);
+import Head from "next/head";
+import HeroSection2 from "@/components/Home/v2/HeroSection2";
 
 type PageProps = { pageData: Homepagesaudi | null };
 
@@ -57,10 +51,53 @@ export default function Page({ pageData }: PageProps) {
   if (!pageData) return <SpinnerComponent />;
 
   return (
-    <div >
-      <div >
+    <div>
+      <Head>
+        <title>{pageData.seometadataPagetitle.value}</title>
+        <meta name="title" content={pageData.seometadataMetatitle.value} />
+        <meta
+          name="description"
+          content={pageData.seometadataMetadescription.value}
+        />
+
+        <meta
+          property="og:title"
+          content={pageData.seometadataPagetitle.value}
+        />
+        <meta
+          property="og:description"
+          content={pageData.seometadataMetadescription.value}
+        />
+        <meta property="og:url" content="https://www.woodindesign.world/" />
+        <meta property="og:site_name" content={Globals.SITE_NAME} />
+        <meta
+          property="og:image"
+          content="https://www.woodindesign.world/assets/logos/SWS-WoodinDesign (1).png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="article" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={pageData.seometadataMetatitle.value}
+        />
+        <meta
+          name="twitter:description"
+          content={pageData.seometadataMetadescription.value}
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.woodindesign.world/assets/logos/SWS-WoodinDesign (1).png"
+        />
+
+        <link rel="canonical" href="https://www.woodindesign.world/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <div>
         <div className="homepage">
-          <DynamicHeroSection pageData={pageData} />
+          <HeroSection2 pageData={pageData} />
           <AboutSection2 pageData={pageData} />
           <TargetAudientSection pageData={pageData} />
           <WhyAttendSection pageData={pageData} />
