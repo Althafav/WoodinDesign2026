@@ -118,7 +118,7 @@ const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
           <div className="text-center">
             <div className="border-orangeWiD border-1 backdrop-blur-sm  max-w-2xl mx-auto rounded-2xl">
               <div className="p-8">
-                <Trophy className="w-12 h-12 text-orangeWiD mx-auto mb-6" />
+                <Trophy className="w-12 h-12 text-orangeWiD mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-12" />
                 <h3 className="text-2xl text-white mb-4">
                   Winners will be recognized during the
                 </h3>

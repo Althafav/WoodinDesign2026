@@ -1,3 +1,4 @@
+import { hoverRotateClasses } from "@/utils/tailwindanimationclass";
 import { Award, Leaf, Star, Target, Trophy, Zap } from "lucide-react";
 
 export default function AwardsSection() {
@@ -104,7 +105,7 @@ export default function AwardsSection() {
           <div className="text-center">
             <div className="bg-green-600/20 backdrop-blur-sm border-green-400/30 max-w-2xl mx-auto rounded-2xl">
               <div className="p-8">
-                <Trophy className="w-12 h-12 text-green-400 mx-auto mb-6" />
+                <Trophy className={`w-12 h-12 text-green-400 mx-auto mb-6 ${hoverRotateClasses}`} />
                 <h3 className="text-2xl text-white mb-4">
                   Winners will be recognized during the
                 </h3>

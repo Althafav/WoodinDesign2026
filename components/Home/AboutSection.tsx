@@ -1,6 +1,7 @@
 import React from "react";
 import { TreePine, Factory, Recycle } from "lucide-react";
 import { Homepagesaudi } from "@/models/homepagesaudi";
+import { hoverRotateClasses } from "@/utils/tailwindanimationclass";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
@@ -41,7 +42,7 @@ const AboutSection: React.FC<PageDataProps> = ({ pageData }) => {
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="space-y-4">
                   <div className="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center mx-auto">
-                    <TreePine className="w-8 h-8 text-green-700" />
+                    <TreePine className={`w-8 h-8 text-green-700 ${hoverRotateClasses}`} />
                   </div>
                   <h4 className="text-lg text-green-800">
                     Carbon Sequestration
@@ -53,7 +54,7 @@ const AboutSection: React.FC<PageDataProps> = ({ pageData }) => {
 
                 <div className="space-y-4">
                   <div className="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center mx-auto">
-                    <Factory className="w-8 h-8 text-green-700" />
+                    <Factory className={`w-8 h-8 text-green-700 ${hoverRotateClasses}`} />
                   </div>
                   <h4 className="text-lg text-amber-800">
                     Global Regulatory Landscape
@@ -66,7 +67,7 @@ const AboutSection: React.FC<PageDataProps> = ({ pageData }) => {
 
                 <div className="space-y-4">
                   <div className="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center mx-auto">
-                    <Recycle className="w-8 h-8 text-green-700" />
+                    <Recycle className={`w-8 h-8 text-green-700 ${hoverRotateClasses}`} />
                   </div>
                   <h4 className="text-lg text-amber-800">
                     Sustainable Practices

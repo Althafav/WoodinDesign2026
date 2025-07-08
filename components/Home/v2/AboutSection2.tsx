@@ -1,6 +1,7 @@
 import React from "react";
 import { TreePine, Factory, Recycle } from "lucide-react";
 import { Homepagesaudi } from "@/models/homepagesaudi";
+import { hoverRotateClasses } from "@/utils/tailwindanimationclass";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
@@ -47,7 +48,7 @@ const AboutSection2: React.FC<PageDataProps> = ({ pageData }) => {
               <div className="grid md:grid-cols-3 gap-8 ">
                 <div className="space-y-4 flex gap-5 items-start">
                   <div className=" flex items-center justify-center mx-auto">
-                    <TreePine className="w-8 h-8 text-white" />
+                    <TreePine className={`w-8 h-8 text-white ${hoverRotateClasses}`} />
                   </div>
 
                   <p className="text-white text-md text-left font-light">
@@ -58,7 +59,7 @@ const AboutSection2: React.FC<PageDataProps> = ({ pageData }) => {
 
                 <div className="space-y-4 flex gap-5 items-start">
                   <div className=" flex items-center justify-center mx-auto">
-                    <Factory className="w-8 h-8 text-white" />
+                    <Factory className={`w-8 h-8 text-white ${hoverRotateClasses}`} />
                   </div>
 
                   <p className="text-white text-md text-left font-light">
@@ -70,7 +71,7 @@ const AboutSection2: React.FC<PageDataProps> = ({ pageData }) => {
 
                 <div className="space-y-4 flex gap-5 items-start">
                   <div className=" flex items-center justify-center mx-auto">
-                    <Recycle className="w-8 h-8 text-white" />
+                    <Recycle className={`w-8 h-8 text-white ${hoverRotateClasses}`} />
                   </div>
 
                   <p className="text-white text-md text-left font-light">

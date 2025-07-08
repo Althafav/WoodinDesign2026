@@ -1,0 +1,1 @@
+export const hoverRotateClasses = "transition-transform duration-300 hover:scale-110 hover:rotate-12"
