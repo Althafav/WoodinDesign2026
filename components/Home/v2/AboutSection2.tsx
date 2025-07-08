@@ -13,7 +13,7 @@ const AboutSection2: React.FC<PageDataProps> = ({ pageData }) => {
   return (
     <section id="about" className="pt-10 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 ">
-        <div className="bg-white relative z-10 overflow-hidden rounded-b-2xl">
+        <div className="bg-white relative z-10 overflow-hidden sm:rounded-b-2xl">
           {/* Header */}
           <div className="text-start mb-20">
             <p className="font-medium mb-2 text-lg">
@@ -38,7 +38,7 @@ const AboutSection2: React.FC<PageDataProps> = ({ pageData }) => {
           {/* Main Content */}
           <div className="">
             {/* Sustainability Goals */}
-            <div className="bg-orangeWiD rounded-2xl p-12 text-center">
+            <div className="bg-orangeWiD sm:rounded-2xl p-12 text-center">
               <h3 className=" text-xl sm:text-2xl text-white mb-8">
                 In line with the Kingdom’s sustainability goals, the conference
                 will address wood’s pivotal role in:
