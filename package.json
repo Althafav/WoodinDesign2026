@@ -1,5 +1,5 @@
 {
-  "name": "ifac-2026",
+  "name": "wood-in-design",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,8 +13,10 @@
     "@fullpage/react-fullpage": "^0.1.48",
     "@kentico/kontent-delivery": "^10.4.1",
     "@kentico/kontent-management": "^2.9.2",
+    "@radix-ui/react-accordion": "^1.2.11",
     "@vercel/analytics": "^1.5.0",
     "axios": "^1.8.4",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.15.0",
     "fullpage.js": "^4.0.36",
@@ -30,6 +32,7 @@
     "react-icons": "^5.5.0",
     "react-range": "^1.10.0",
     "swiper": "^11.2.10",
+    "tailwind-merge": "^3.3.1",
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
@@ -45,7 +48,9 @@
     "@types/xml2js": "^0.4.14",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
+    "shadcn-ui": "^0.9.5",
     "tailwindcss": "^4.0.16",
+    "tw-animate-css": "^1.3.5",
     "typescript": "^5"
   }
 }
