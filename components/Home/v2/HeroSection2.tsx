@@ -13,7 +13,7 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
     return null;
   }
   return (
-    <section className="relative hero-section-wrapper  min-h-screen flex flex-col justify-center items-start overflow-hidden ">
+    <section className="relative hero-section-wrapper sm:min-h-screen flex flex-col justify-center items-start overflow-hidden ">
       {/* Background Image */}
       <div className="absolute inset-0 image-wrapper-hero">
         <img
@@ -40,7 +40,7 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
       />
 
       {/* Main Content */}
-      <div className="relative z-10 text-start text-white px-4 flex-1 flex flex-col  justify-end py-20">
+      <div className="relative z-10 text-start text-white px-4 flex-1 flex flex-col  justify-end pt-40 pb-20 sm:py-20">
         <motion.div
           initial={{ x: -300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}

@@ -9,6 +9,7 @@ import Head from "next/head";
 import { Awardpage } from "@/models/awardpage";
 import AwardCategoryAccordion from "@/components/UI/AwardCategoryAccordin";
 import Link from "next/link";
+import { hoverRotateClasses } from "@/utils/tailwindanimationclass";
 
 type PageProps = { pageData: Awardpage | null };
 
@@ -121,7 +122,7 @@ export default function Page({ pageData }: PageProps) {
                           <img
                             src={item.image.value[0]?.url}
                             alt=""
-                            className="w-[80px] h-[80px] object-contain"
+                            className={`w-[80px] h-[80px] object-contain ${hoverRotateClasses}`}
                           />
                         </div>
 
