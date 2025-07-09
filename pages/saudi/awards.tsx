@@ -34,7 +34,7 @@ export default function Page({ pageData }: PageProps) {
           property="og:description"
           content={pageData.seometadataMetadescription.value}
         />
-        <meta property="og:url" content="https://www.woodindesign.world/" />
+        <meta property="og:url" content="https://www.woodindesign.world/saudi/awards" />
         <meta property="og:site_name" content={Globals.SITE_NAME} />
         <meta
           property="og:image"
@@ -58,7 +58,7 @@ export default function Page({ pageData }: PageProps) {
           content="https://www.woodindesign.world/assets/logos/SWS-WoodinDesign (1).png"
         />
 
-        <link rel="canonical" href="https://www.woodindesign.world/" />
+        <link rel="canonical" href="https://www.woodindesign.world/saudi/awards" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div>
