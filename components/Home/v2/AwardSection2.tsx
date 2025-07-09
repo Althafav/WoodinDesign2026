@@ -136,7 +136,7 @@ const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
                   WoodShow Awards Dinner
                 </h4>
                 <p className="text-xl text-gray-300 italic">
-                  8 September 2025 – 8:00 PM
+                  {pageData.awardsubmisiondeadline.value}
                 </p>
               </div>
             </div>
@@ -146,8 +146,15 @@ const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
                 Submit Your Project
               </div> */}
               <p className="text-sm text-gray-300">
-                Submission deadline: 8 September 2025 – 8:00 PM 
+                Submission deadline: {pageData.awardsubmisiondeadline.value}
               </p>
+              {pageData.awardctalink.value && (
+                <div className="mt-10">
+                  <Link className="bg-orangeWiD p-2 text-white text-md rounded-2xl" href={pageData.awardctalink.value}>
+                    <span>{pageData.awardctabuttonname.value}</span>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
