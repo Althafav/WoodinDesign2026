@@ -27,7 +27,7 @@ export default function Page({
   attendAs,
 }: Props) {
   useEffect(() => {
-    JsLoader.loadFile(`${Globals.BASE_URL}assets/js/open-calls-saudi.js`);
+    JsLoader.loadFile(`/assets/js/open-calls-saudi.js`);
   }, []);
   const handleCheck = (
     checkboxId: string,
