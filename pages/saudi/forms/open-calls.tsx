@@ -658,14 +658,17 @@ export default function Page({
                       <div className="_clear-element"></div>
                     </div>
                     <div
-                      className="_form-thank-you"
+                      className="_form-thank-you "
                       style={{ display: "none" }}
                     >
-                      <span id="message">
+                      <div
+                        className="py-40"
+                        id="message"
+                      >
                         We’ve received your submission and truly appreciate your
                         interest. Our team will review the information and get
                         back to you shortly if necessary.
-                      </span>
+                      </div>
                     </div>
                   </form>
                 </div>
