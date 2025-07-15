@@ -26,22 +26,9 @@ export default function Page({
   pageData,
   attendAs,
 }: Props) {
-  const router = useRouter();
   useEffect(() => {
-    // script loader, bust cache to ensure reload on each navigation
-    const loadScript = () => {
-      JsLoader.loadFile(
-        `${Globals.BASE_URL}assets/js/open-calls-saudi.js?ts=${Date.now()}`
-      );
-    };
-    // initial load
-    loadScript();
-    // reload on every route change
-    router.events.on("routeChangeComplete", loadScript);
-    return () => {
-      router.events.off("routeChangeComplete", loadScript);
-    };
-  }, [router.events]);
+    JsLoader.loadFile(`${Globals.BASE_URL}assets/js/open-calls-saudi.js`);
+  }, []);
   const handleCheck = (
     checkboxId: string,
     yesFieldId: string,
