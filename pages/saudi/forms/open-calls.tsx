@@ -159,16 +159,16 @@ export default function Page({
                     />
                     <div className="_form-content ">
                       <div className="bg-white mb-10">
-                        <span
+                        <div
                           dangerouslySetInnerHTML={{
                             __html: pageData.bannerheading.value,
                           }}
-                          className="text-black text-2xl sm:text-3xl lg:text-6xl  max-w-4xl leading-tight mb-2"
-                        ></span>
+                          className="text-black text-2xl sm:text-3xl lg:text-5xl    leading-tight mb-2"
+                        ></div>
 
                         <div className="py-3">
-                          <span
-                            className="text-lg text-black"
+                          <article
+                            className="prose max-w-none  prose-stone  text-black "
                             dangerouslySetInnerHTML={{
                               __html: pageData.bannerdescription.value,
                             }}
@@ -661,10 +661,7 @@ export default function Page({
                       className="_form-thank-you "
                       style={{ display: "none" }}
                     >
-                      <div
-                        className="py-40"
-                        id="message"
-                      >
+                      <div className="py-40" id="message">
                         We’ve received your submission and truly appreciate your
                         interest. Our team will review the information and get
                         back to you shortly if necessary.
