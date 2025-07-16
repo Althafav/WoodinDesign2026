@@ -158,17 +158,17 @@ export default function Page({
                       value={pageData.leadtype.value}
                     />
                     <div className="_form-content ">
-                      <div className="bg-white mb-10">
+                      <div className=" mb-10">
                         <div
                           dangerouslySetInnerHTML={{
                             __html: pageData.bannerheading.value,
                           }}
-                          className="text-black text-2xl sm:text-3xl lg:text-5xl    leading-tight mb-2"
+                          className="text-black text-2xl sm:text-3xl lg:text-4xl font-medium     leading-tight mb-2"
                         ></div>
 
                         <div className="py-3">
                           <article
-                            className="prose max-w-none  prose-stone  text-black "
+                            className="prose max-w-none   text-black "
                             dangerouslySetInnerHTML={{
                               __html: pageData.bannerdescription.value,
                             }}
