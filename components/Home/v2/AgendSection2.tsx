@@ -1,8 +1,9 @@
 import { Conferencedate } from "@/models/conferencedate";
 import { Homepagesaudi } from "@/models/homepagesaudi";
 import { Sessionitem } from "@/models/sessionitem";
+import Link from "next/link";
+
 import React, { useState } from "react";
-import { FaCalendar } from "react-icons/fa6";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
@@ -29,9 +30,13 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
     if (selected) setSelectedAgenda(selected);
   };
   return (
-    <section className="agenda-section-wrapper px-4 relative">
+    <section className=" px-4 relative">
       <div className="absolute right-0 bottom-0 top-0 lg:block hidden">
-        <img src={pageData.agendabackgroundimage.value[0].url} alt="" className="object-cover w-full brightness-95 h-full"/>
+        <img
+          src={pageData.agendabackgroundimage.value[0].url}
+          alt=""
+          className="object-cover w-full brightness-95 h-full"
+        />
       </div>
       <div className="relative z-10 container mx-auto py-10">
         <p className=" text-4xl sm:text-7xl font-bold text-left  mb-10">
@@ -94,6 +99,29 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
               No sessions available.
             </p>
           )}
+        </div>
+
+        <div className="mt-10 flex sm:flex-row flex-col gap-2">
+          {pageData.ctabutton.value.map((item: any, index: number) => (
+            <Link href={item.link.value} key={index} className="inline-block">
+              <div
+                className="
+  
+        bg-primary-saudi
+        text-white
+        px-6 py-3
+        rounded-full
+        shadow-[0_0_20px_rgba(34,197,94,0.6)]
+        transition-transform duration-300 ease-out
+        transform
+        hover:scale-105
+        hover:shadow-[0_0_25px_rgba(34,197,94,0.8)]
+      "
+              >
+                <span> {item.name.value}</span>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

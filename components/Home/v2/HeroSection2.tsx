@@ -30,14 +30,53 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
           className="absolute right-0 w-1/2"
         />
       </div>
-      <motion.img
-        initial={{ x: 300, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
-        src="/assets/imgs/wid-logowithdate.png"
-        alt=""
-        className="w-[550px] absolute z-10 bottom-10 right-10 hidden sm:block"
-      />
+
+      <div className="absolute z-10 bottom-10 right-10 hidden sm:block">
+        <motion.img
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
+          src="/assets/imgs/wid-logowithdate.png"
+          alt=""
+          className="w-[550px] "
+        />
+        <motion.div
+          initial={{ x: -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 1.2,
+            delay: 1.2,
+            type: "tween",
+          }}
+          className="mt-10 flex gap-2"
+        >
+          {pageData.ctabutton.value.map((item: any, index: number) => (
+            <Link
+              key={index}
+              href={item.link.value}
+              target={item.target.value === 1 ? "_blank" : "_self"}
+              className="inline-block"
+            >
+              <span
+                className="
+        text-2xl
+        bg-primary-saudi
+        text-white
+        px-6 py-3
+        rounded-full
+        shadow-[0_0_20px_rgba(34,197,94,0.6)]
+        transition-transform duration-300 ease-out
+        transform
+        hover:scale-105
+        hover:shadow-[0_0_25px_rgba(34,197,94,0.8)]
+      "
+              >
+                {item.name.value}
+              </span>
+            </Link>
+          ))}
+        </motion.div>
+      </div>
 
       {/* Main Content */}
       <div className="relative z-10 text-start text-white px-4 flex-1 flex flex-col  justify-end pt-40 pb-20 sm:py-20">
@@ -55,29 +94,29 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
               Resilience, Restoration, and Renaissance
             </p>
           </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ x: -300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 1.2,
-            delay: 1.2,
-            type: "tween"
-          }}
-          className="mt-10"
-        >
-          {pageData.ctabutton.value.map((item: any, index: number) => (
-            <Link
-              key={index}
-              href={item.link.value}
-              target={item.target.value === 1 ? "_blank" : "_self"}
-              className="inline-block"
-            >
-              <span
-                className="
-        text-2xl
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1.2,
+              delay: 1.2,
+              type: "tween",
+            }}
+            className="mt-10 flex gap-10 flex-col  sm:hidden"
+          >
+            {pageData.ctabutton.value.map((item: any, index: number) => (
+              <Link
+                key={index}
+                href={item.link.value}
+                target={item.target.value === 1 ? "_blank" : "_self"}
+                className="inline-block"
+              >
+                <span
+                  className="
+        text-xl
         bg-primary-saudi
+        text-white
         px-6 py-3
         rounded-full
         shadow-[0_0_20px_rgba(34,197,94,0.6)]
@@ -86,11 +125,12 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
         hover:scale-105
         hover:shadow-[0_0_25px_rgba(34,197,94,0.8)]
       "
-              >
-                {item.name.value}
-              </span>
-            </Link>
-          ))}
+                >
+                  {item.name.value}
+                </span>
+              </Link>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
