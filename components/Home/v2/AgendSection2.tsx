@@ -64,6 +64,7 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
 
         {/* Sessions */}
         <div className="max-w-4xl">
+          <p className="mb-3">GMT+3 / Riyadh Time</p>
           {selectedAgenda && selectedAgenda.sessionitems.value.length > 0 ? (
             <div className="grid grid-cols-1  gap-3">
               {selectedAgenda.sessionitems.value.map(
