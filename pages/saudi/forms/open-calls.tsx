@@ -110,11 +110,11 @@ export default function Page({
     <div>
       <div className="article-page-wrapper">
         {pageData.bannerimage.value.length > 0 && (
-          <div className="herosection-wrapper-home relative w-full sm:h-[250px] overflow-hidden">
+          <div className="overflow-hidden ">
             <img
               src={pageData.bannerimage.value[0]?.url}
               alt=""
-              className="absolute inset-0 w-full h-full object-cover "
+              className=" aspect-auto"
             />
           </div>
         )}
