@@ -8,6 +8,7 @@ import GenericData from "@/constants/countryData";
 import JsLoader from "@/modules/JsLoader";
 import { useRouter } from "next/router";
 import { Formpagemodel } from "@/models/formpagemodel";
+import Link from "next/link";
 
 interface Props {
   mainsource: string;
@@ -110,13 +111,13 @@ export default function Page({
     <div>
       <div className="article-page-wrapper">
         {pageData.bannerimage.value.length > 0 && (
-          <div className="overflow-hidden ">
+          <Link href="/" className="overflow-hidden ">
             <img
               src={pageData.bannerimage.value[0]?.url}
               alt=""
               className=" aspect-auto"
             />
-          </div>
+          </Link>
         )}
 
         <div className="register-interest-form-wrapper-2026 container mx-auto ">
