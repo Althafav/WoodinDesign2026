@@ -30,33 +30,7 @@ export default function Page({
   useEffect(() => {
     JsLoader.loadFile(`/assets/js/open-calls-saudi.js`);
   }, []);
-  const handleCheck = (
-    checkboxId: string,
-    yesFieldId: string,
-    noFieldId: string
-  ) => {
-    const checkbox = document.getElementById(
-      checkboxId
-    ) as HTMLInputElement | null;
-    const yesInput = document.getElementById(
-      yesFieldId
-    ) as HTMLInputElement | null;
-    const noInput = document.getElementById(
-      noFieldId
-    ) as HTMLInputElement | null;
-    if (!checkbox || !yesInput || !noInput) {
-      console.warn("Missing checkbox or hidden input fields.");
-      return;
-    }
-
-    if (checkbox.checked) {
-      yesInput.checked = true;
-      noInput.checked = false;
-    } else {
-      yesInput.checked = false;
-      noInput.checked = true;
-    }
-  };
+ 
 
   if (!pageData) {
     return <SpinnerComponent />;
