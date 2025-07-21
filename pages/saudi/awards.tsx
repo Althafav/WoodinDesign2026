@@ -34,7 +34,10 @@ export default function Page({ pageData }: PageProps) {
           property="og:description"
           content={pageData.seometadataMetadescription.value}
         />
-        <meta property="og:url" content="https://www.woodindesign.world/saudi/awards" />
+        <meta
+          property="og:url"
+          content="https://www.woodindesign.world/saudi/awards"
+        />
         <meta property="og:site_name" content={Globals.SITE_NAME} />
         <meta
           property="og:image"
@@ -58,7 +61,10 @@ export default function Page({ pageData }: PageProps) {
           content="https://www.woodindesign.world/assets/logos/SWS-WoodinDesign (1).png"
         />
 
-        <link rel="canonical" href="https://www.woodindesign.world/saudi/awards" />
+        <link
+          rel="canonical"
+          href="https://www.woodindesign.world/saudi/awards"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div>
@@ -80,7 +86,10 @@ export default function Page({ pageData }: PageProps) {
 
                 {pageData.ctabuttonlink.value && (
                   <div className="mt-8 flex justify-center items-center">
-                    <Link href={pageData.ctabuttonlink.value} className="border border-white text-white px-4 py-2 rounded-full text-center">
+                    <Link
+                      href={pageData.ctabuttonlink.value}
+                      className="border border-white text-white px-4 py-2 rounded-full text-center"
+                    >
                       <span>{pageData.ctabuttonname.value}</span>
                     </Link>
                   </div>
@@ -179,9 +188,12 @@ export default function Page({ pageData }: PageProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
+  const { locale } = context;
+  const languageCode = locale === "ar" ? "Arabic" : "default";
   try {
     const response: any = await Globals.KontentClient.item("award_page_2026")
+      .languageParameter(languageCode)
       .withParameter("depth", "4")
       .toPromise();
 

@@ -30,7 +30,6 @@ export default function Page({
   useEffect(() => {
     JsLoader.loadFile(`/assets/js/open-calls-saudi.js`);
   }, []);
- 
 
   if (!pageData) {
     return <SpinnerComponent />;
@@ -658,6 +657,9 @@ export async function getServerSideProps(context: any) {
   const mainsource = params.mainsource || "Website";
   const subsource = params.subsource || "/";
   const attendAs = params.attend || "";
+  const { locale } = context;
+
+  const languageCode = locale === "ar" ? "Arabic" : "default";
 
   let codename = "";
 
@@ -673,7 +675,7 @@ export async function getServerSideProps(context: any) {
   ]);
 
   const datasourceStr: string = await Globals.KontentClient.item(codename)
-    .languageParameter(Globals.CURRENT_LANG_CODENAME)
+    .languageParameter(languageCode)
     .withParameter("depth", "4")
     .toObservable()
     .toPromise()

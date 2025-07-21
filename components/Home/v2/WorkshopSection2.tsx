@@ -93,43 +93,45 @@ const WorkshopSection2: React.FC<PageDataProps> = ({ pageData }) => {
                 </h3>
 
                 <div className="grid sm:grid-cols-2 gap-5">
-                  {participantBenefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="flex items-start gap-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                        >
-                          <circle
-                            cx="12"
-                            cy="12"
-                            r="11"
-                            stroke="url(#paint0_linear_15_526)"
-                            strokeWidth="2"
-                          />
-                          <defs>
-                            <linearGradient
-                              id="paint0_linear_15_526"
-                              x1="24"
-                              y1="12"
-                              x2="0"
-                              y2="12"
-                              gradientUnits="userSpaceOnUse"
-                            >
-                              <stop stopColor="#623D21" />
-                              <stop offset="1" stopColor="white" />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                        <p className="text-white leading-relaxed">
-                          {benefit.description}
-                        </p>
+                  {pageData.participantbenefititems.value.map(
+                    (benefit: any, index: number) => (
+                      <div key={index} className="flex items-start space-x-4">
+                        <div className="flex items-start gap-5">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="11"
+                              stroke="url(#paint0_linear_15_526)"
+                              strokeWidth="2"
+                            />
+                            <defs>
+                              <linearGradient
+                                id="paint0_linear_15_526"
+                                x1="24"
+                                y1="12"
+                                x2="0"
+                                y2="12"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop stopColor="#623D21" />
+                                <stop offset="1" stopColor="white" />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          <p className="text-white leading-relaxed">
+                            {benefit.name.value}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               </div>
             </div>
