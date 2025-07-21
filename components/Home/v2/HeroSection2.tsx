@@ -99,7 +99,9 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
           </p>
 
           <div className="text-3xl font-medium">
-            <p className="text-primary-saudi">The Wooden Age:</p>
+            <p className="text-primary-saudi">
+              {locale === "ar" ? "" : "The Wooden Age:"}
+            </p>
             <p className="text-orangeWiD">
               {locale === "ar"
                 ? "التصميم العصري الحديث"
