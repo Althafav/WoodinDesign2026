@@ -29,11 +29,11 @@ export default function MenuComponent() {
         </div>
 
         <div>
-          <div className="flex gap-2">
+          <div className="flex gap-1">
             {locales!.map((loc) => (
               <button
                 key={loc}
-                className={`lang-btn bg-green-600 text-white p-3 ${
+                className={`lang-btn bg-orangeWiD rounded-xl text-white p-3 ${
                   loc === locale ? "active" : ""
                 }`}
                 onClick={() => push(asPath, asPath, { locale: loc })}
