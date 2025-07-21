@@ -3,12 +3,14 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
 }
 
 const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
+  const { locale } = useRouter();
   if (!pageData) {
     return null;
   }
@@ -31,7 +33,11 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
         />
       </div>
 
-      <div className="absolute z-10 bottom-10 right-10 hidden sm:block">
+      <div
+        className={`absolute z-10 bottom-10 ${
+          locale === "ar" ? "left-10" : "right-10"
+        } hidden sm:block`}
+      >
         <motion.img
           initial={{ x: 300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}

@@ -2,6 +2,7 @@ import { Conferencedate } from "@/models/conferencedate";
 import { Homepagesaudi } from "@/models/homepagesaudi";
 import { Sessionitem } from "@/models/sessionitem";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import React, { useState } from "react";
 
@@ -10,6 +11,7 @@ interface PageDataProps {
 }
 
 const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
+  const { locale } = useRouter();
   const [selectedAgenda, setSelectedAgenda] = useState<Conferencedate | null>(
     () => {
       if (pageData && pageData.agendaitems.value.length > 0) {
@@ -31,7 +33,7 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
   };
   return (
     <section className=" px-4 relative">
-      <div className="absolute right-0 bottom-0 top-0 lg:block hidden">
+      <div className={`absolute ${locale === 'ar' ? 'left': 'right'}-0 bottom-0 top-0 lg:block hidden`}>
         <img
           src={pageData.agendabackgroundimage.value[0].url}
           alt=""
@@ -39,7 +41,7 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
         />
       </div>
       <div className="relative z-10 container mx-auto py-10">
-        <p className=" text-4xl sm:text-7xl font-bold text-left  mb-10">
+        <p className=" text-4xl sm:text-7xl font-bold  mb-10">
           {pageData.agendaheading.value}
         </p>
 

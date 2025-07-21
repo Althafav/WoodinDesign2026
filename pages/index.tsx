@@ -112,9 +112,14 @@ export default function Page({ pageData }: PageProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
+  const { locale } = context;
+
+  const languageCode = locale === "ar" ? "Arabic" : "default";
+  console.log(languageCode);
   try {
     const response: any = await Globals.KontentClient.item("home_page___saudi")
+      .languageParameter(languageCode)
       .withParameter("depth", "4")
       .toPromise();
 
