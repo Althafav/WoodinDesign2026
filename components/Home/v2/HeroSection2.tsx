@@ -21,7 +21,7 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
         <img
           src={pageData.bannerimage.value[0]?.url}
           alt="Beautiful wooden architecture interior"
-          className="w-full sm:w-9/12 h-full object-cover"
+          className="w-full sm:w-9/12 h-full object-cover brightness-50"
         />
       </div>
 
@@ -92,12 +92,18 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
           className="max-w-[450px]"
         >
-          <p className="text-4xl">Designing for Wellness:</p>
+          <p className="text-4xl">
+            {locale === "ar"
+              ? "التصميم العصري الحديث"
+              : "Designing for Wellness:"}
+          </p>
 
           <div className="text-3xl font-medium">
             <p className="text-primary-saudi">The Wooden Age:</p>
             <p className="text-orangeWiD">
-              Resilience, Restoration, and Renaissance
+              {locale === "ar"
+                ? "التصميم العصري الحديث"
+                : "Resilience, Restoration, and Renaissance"}
             </p>
           </div>
 
