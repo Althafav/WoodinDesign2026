@@ -90,21 +90,21 @@ const HeroSection2: React.FC<PageDataProps> = ({ pageData }) => {
           initial={{ x: -300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
-          className="max-w-[450px]"
+          className="max-w-[500px]"
         >
-          <p className="text-4xl">
+          <p className="text-4xl mb-4">
             {locale === "ar"
-              ? "التصميم العصري الحديث"
+              ? <span className="text-5xl">التصميم العصري الحديث</span>
               : "Designing for Wellness:"}
           </p>
 
-          <div className="text-3xl font-medium">
+          <div className="text-4xl font-medium">
             <p className="text-primary-saudi">
               {locale === "ar" ? "" : "The Wooden Age:"}
             </p>
             <p className="text-orangeWiD">
               {locale === "ar"
-                ? "التصميم العصري الحديث"
+                ? <span className="text-4xl">المرونة, التجديد و التطوير</span>
                 : "Resilience, Restoration, and Renaissance"}
             </p>
           </div>

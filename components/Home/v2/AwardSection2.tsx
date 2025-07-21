@@ -2,48 +2,18 @@ import { Homepagesaudi } from "@/models/homepagesaudi";
 import React from "react";
 import { Award, Leaf, Star, Target, Trophy, Zap } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
 }
 
 const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
+  const { locale } = useRouter();
   if (!pageData) {
     return null;
   }
 
-  const awardCategories = [
-    {
-      title: "Timber Innovation Award",
-      icon: Zap,
-      description:
-        "For pioneering uses of engineered wood (CLT, Glulam, hybrid systems) that redefine architectural or structural boundaries.",
-    },
-    {
-      title: "Vision 2030 Sustainability Award",
-      icon: Target,
-      description:
-        "Celebrating projects that contribute to carbon reduction, urban greening, and sustainable city development in alignment with national goals.",
-    },
-    {
-      title: "Design & Technology Integration Award",
-      icon: Award,
-      description:
-        "Honoring excellence in digital fabrication, CNC/robotic techniques, and the seamless blend of tradition with cutting-edge design tools.",
-    },
-    {
-      title: "Climate Resilience in Wood Award",
-      icon: Leaf,
-      description:
-        "Awarded to projects demonstrating exceptional performance of timber in harsh climates — including heat, sand, and humidity — with proven longevity and durability.",
-    },
-    {
-      title: "Emerging Talent in Wood Architecture",
-      icon: Star,
-      description:
-        "Spotlighting students or young professionals leading the next wave of innovation in wood design, sustainability, or fabrication.",
-    },
-  ];
   return (
     <section
       id="awards"
@@ -82,7 +52,7 @@ const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
 
           {/* Award Categories */}
           <div className="mb-16">
-            <h3 className="text-3xl text-white mb-12 text-left">
+            <h3 className="text-3xl text-white mb-12 ">
               {pageData.awardcategoryheading.value}
             </h3>
 
@@ -130,10 +100,14 @@ const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
               <div className="p-8">
                 <Trophy className="w-12 h-12 text-orangeWiD mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-12" />
                 <h3 className="text-2xl text-white mb-4">
-                  Winners will be recognized during the
+                  {locale === "ar"
+                    ? "سيتم تكريم الفائزين خلال"
+                    : " Winners will be recognized during the"}
                 </h3>
                 <h4 className="text-3xl text-orangeWiD mb-4">
-                  WoodShow Awards Dinner
+                  {locale === "ar"
+                    ? "حفل عشاء جوائز WoodShow"
+                    : "WoodShow Awards Dinner"}
                 </h4>
                 <p className="text-xl text-gray-300 italic">
                   {pageData.awardsubmisiondeadline.value}
@@ -142,15 +116,18 @@ const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
             </div>
 
             <div className="mt-12 space-y-4">
-              {/* <div className="bg-green-500 hover:bg-green-600 text-white text-lg px-12 py-4 rounded-xl cursor-pointer">
-                Submit Your Project
-              </div> */}
               <p className="text-sm text-gray-300">
-                Submission deadline: {pageData.awardsubmisiondeadline.value}
+                {locale === "ar"
+                  ? "الموعد النهائي للتقديم:"
+                  : "Submission deadline:"}
+                <span className="mx-2"> {pageData.awardsubmisiondeadline.value}</span>
               </p>
               {pageData.awardctalink.value && (
                 <div className="mt-10">
-                  <Link className="bg-orangeWiD p-2 text-white text-md rounded-2xl" href={pageData.awardctalink.value}>
+                  <Link
+                    className="bg-orangeWiD p-2 text-white text-md rounded-2xl"
+                    href={pageData.awardctalink.value}
+                  >
                     <span>{pageData.awardctabuttonname.value}</span>
                   </Link>
                 </div>

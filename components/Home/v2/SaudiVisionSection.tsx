@@ -9,32 +9,7 @@ const SaudiVisionSection: React.FC<PageDataProps> = ({ pageData }) => {
   if (!pageData) {
     return null;
   }
-  const participantBenefits = [
-    {
-      title: "Deep Understanding of Wood's Value",
-      description:
-        "A deeper understanding of wood’s environmental, aesthetic, and structural value.",
-      icon: TreePine,
-    },
-    {
-      title: "Professional Networks",
-      description:
-        "New networks and collaborative opportunities across disciplines and geographies",
-      icon: Globe,
-    },
-    {
-      title: "Practical Tools & Knowledge",
-      description:
-        "Practical tools for compliance, sourcing, and sustainable design",
-      icon: Wrench,
-    },
-    {
-      title: "Human-Centered Design Appreciation",
-      description:
-        "A renewed appreciation of wood’s role in building healthier, smarter, and more human-centered spaces",
-      icon: Heart,
-    },
-  ];
+
 
   return (
     <section id="workshops" className="py-20 bg-black relative overflow-hidden">
@@ -49,7 +24,7 @@ const SaudiVisionSection: React.FC<PageDataProps> = ({ pageData }) => {
       <div className=" relative z-10 container mx-auto px-4">
         <div className="max-w-3xl">
           {/* Header Section */}
-          <div className="text-left mb-5">
+          <div className=" mb-5">
             <h2 className="text-4xl tracking-tighter text-white mb-6 font-medium">
               {pageData.saudivisionheading.value}
             </h2>

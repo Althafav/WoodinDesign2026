@@ -49,20 +49,18 @@ const WorkshopSection2: React.FC<PageDataProps> = ({ pageData }) => {
       <div className=" relative z-10 container mx-auto px-4">
         <div className="max-w-4xl">
           {/* Header Section */}
-          <div className="text-left mb-5">
+          <div className=" mb-5">
             <h2 className="text-4xl tracking-tighter text-[#F1B936] mb-6 font-bold">
-              Workshops and panel discussions
+              {pageData.workshopheading.value}
             </h2>
 
             <p className="text-xl text-[#F1B936] leading-relaxed font-light">
-              Bridge the gap between digital tools and material intelligence,
-              showing how wood is evolving as a medium for sustainable
-              innovation and timeless beauty.
+              {pageData.workshopsubheading.value}
             </p>
           </div>
 
           <div className="font-light mb-5">
-            <p className="text-lg text-white leading-relaxed">
+            {/* <p className="text-lg text-white leading-relaxed">
               <span className="text-white font-medium">"Wood in Design"</span>{" "}
               serves as a platform for cross-sector collaboration, encouraging
               architects, technologists, artists, regulators, and
@@ -74,7 +72,14 @@ const WorkshopSection2: React.FC<PageDataProps> = ({ pageData }) => {
               conference empowers professionals to integrate wood into
               future-proof, compliant, and inspiring environments—locally and
               globally.
-            </p>
+            </p> */}
+
+            <div
+              className="prose max-w-none prose-invert"
+              dangerouslySetInnerHTML={{
+                __html: pageData.workshopdescription.value,
+              }}
+            />
           </div>
 
           {/* Main Content Grid */}
@@ -84,7 +89,7 @@ const WorkshopSection2: React.FC<PageDataProps> = ({ pageData }) => {
             <div className="">
               <div className="bg-orangeWiD/50 rounded-2xl p-8">
                 <h3 className="text-2xl text-[#FFEDC4] mb-8">
-                  Participants will leave with: 
+                  {pageData.participateheading.value}
                 </h3>
 
                 <div className="grid sm:grid-cols-2 gap-5">

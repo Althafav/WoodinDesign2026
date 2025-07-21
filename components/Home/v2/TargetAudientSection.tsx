@@ -1,4 +1,5 @@
 import { Homepagesaudi } from "@/models/homepagesaudi";
+import { useRouter } from "next/router";
 import React from "react";
 
 interface PageDataProps {
@@ -6,6 +7,7 @@ interface PageDataProps {
 }
 
 const TargetAudientSection: React.FC<PageDataProps> = ({ pageData }) => {
+  const { locale } = useRouter();
   if (!pageData) {
     return null;
   }
@@ -22,8 +24,12 @@ const TargetAudientSection: React.FC<PageDataProps> = ({ pageData }) => {
 
         <div className="relative z-10 h-full flex items-center container mx-auto">
           <div className="text-4xl sm:text-7xl flex gap-2 font-bold">
-            <p className="text-orangeWiD">Target</p>
-            <p className="text-stroke-white ">Audience</p>
+            <p className="text-orangeWiD">
+              {locale === "ar" ? " المستهدف" : "Target"}
+            </p>
+            <p className="text-stroke-white ">
+              {locale === "ar" ? "الجمهور" : "Audience"}
+            </p>
           </div>
         </div>
       </div>
@@ -48,7 +54,10 @@ const TargetAudientSection: React.FC<PageDataProps> = ({ pageData }) => {
             {pageData.targetaudientitems.value.map(
               (item: any, index: number) => {
                 return (
-                  <div className="transition-all duration-300 transform hover:-translate-y-2" key={index}>
+                  <div
+                    className="transition-all duration-300 transform hover:-translate-y-2"
+                    key={index}
+                  >
                     <div className="flex gap-5 items-start">
                       <img
                         src={item.image.value[0]?.url}
