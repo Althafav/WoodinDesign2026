@@ -25,10 +25,10 @@ const TargetAudientSection: React.FC<PageDataProps> = ({ pageData }) => {
         <div className="relative z-10 h-full flex items-center container mx-auto">
           <div className="text-4xl sm:text-7xl flex gap-2 font-bold">
             <p className="text-orangeWiD">
-              {locale === "ar" ? " المستهدف" : "Target"}
+              {locale === "ar" ? "الجمهور"  : "Target"}
             </p>
             <p className="text-stroke-white ">
-              {locale === "ar" ? "الجمهور" : "Audience"}
+              {locale === "ar" ? " المستهدف"  : "Audience"}
             </p>
           </div>
         </div>
