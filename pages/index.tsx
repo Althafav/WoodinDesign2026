@@ -16,6 +16,7 @@ import SaudiVisionSection from "@/components/Home/v2/SaudiVisionSection";
 
 import Head from "next/head";
 import HeroSection2 from "@/components/Home/v2/HeroSection2";
+import SpeakerCarousel from "@/components/Home/v2/SpeakerCarousel";
 
 type PageProps = { pageData: Homepagesaudi | null };
 
@@ -104,6 +105,7 @@ export default function Page({ pageData }: PageProps) {
           <SaudiVisionSection pageData={pageData} />
           <AgendaSection2 pageData={pageData} />
           <WorkshopSection2 pageData={pageData} />
+           <SpeakerCarousel />
           <AwardSection2 pageData={pageData} />
           <UpcomingSection2 pageData={pageData} />
         </div>

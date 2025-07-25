@@ -1,10 +1,12 @@
+import SpeakerPopupBanner from "@/components/speaker/SpeakerPopupBanner";
 import { Conferencedate } from "@/models/conferencedate";
 import { Homepagesaudi } from "@/models/homepagesaudi";
 import { Sessionitem } from "@/models/sessionitem";
+import conferenceSpeakerModel2025 from "@/sysModels/speakers2025";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface PageDataProps {
   pageData: Homepagesaudi | null;
@@ -21,6 +23,37 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
     }
   );
 
+  const [selectedSpeaker, setSelectedSpeaker] =
+    useState<conferenceSpeakerModel2025 | null>(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const [sessionSpeakers, setsessionSpeakers] = useState<
+    conferenceSpeakerModel2025[]
+  >([]);
+
+  useEffect(() => {
+    const fetchSpeakers = async () => {
+      try {
+        const res = await fetch("/api/speakers2025");
+        const data = await res.json();
+        setsessionSpeakers(data);
+      } catch (error) {
+        console.error("Error fetching speakers:", error);
+      }
+    };
+    fetchSpeakers();
+  }, []);
+
+  const openPopup = (speaker: conferenceSpeakerModel2025) => {
+    setSelectedSpeaker(speaker);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setSelectedSpeaker(null);
+    setIsPopupOpen(false);
+  };
+
   if (!pageData || !selectedAgenda) {
     return null;
   }
@@ -33,7 +66,11 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
   };
   return (
     <section className=" px-4 relative">
-      <div className={`absolute ${locale === 'ar' ? 'left': 'right'}-0 bottom-0 top-0 lg:block hidden`}>
+      <div
+        className={`absolute ${
+          locale === "ar" ? "left" : "right"
+        }-0 bottom-0 top-0 lg:block hidden`}
+      >
         <img
           src={pageData.agendabackgroundimage.value[0].url}
           alt=""
@@ -65,7 +102,7 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
         </div>
 
         {/* Sessions */}
-        <div className="max-w-4xl">
+        <div className="max-w-3xl">
           <p className="mb-3">GMT+3 / Riyadh Time</p>
           {selectedAgenda && selectedAgenda.sessionitems.value.length > 0 ? (
             <div className="grid grid-cols-1  gap-3">
@@ -85,11 +122,59 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
                             {item.name.value}
                           </h3>
                           <div
-                            className="text-sm text-gray-700 leading-relaxed"
+                            className="text-sm text-gray-700 leading-relaxed mb-5"
                             dangerouslySetInnerHTML={{
                               __html: item.content.value,
                             }}
                           />
+
+                          <div className="flex gap-8">
+                            {sessionSpeakers
+                              .filter((speaker) =>
+                                speaker.Sessions.includes(item.system.id)
+                              )
+                              .map((speaker, speakerIndex) => (
+                                <div
+                                  key={speaker.ItemID}
+                                  className=""
+                                  onClick={() => openPopup(speaker)}
+                                >
+                                  <div className="w-16 h-16  mb-3 m-auto">
+                                    <img
+                                      src={speaker.Image}
+                                      alt={`${speaker.FirstName} ${speaker.LastName}`}
+                                      className="w-16 h-16 rounded-full object-cover border"
+                                    />
+                                  </div>
+                                  <h3 className="font-semibold text-sm">
+                                    {speaker.FirstName} {speaker.LastName}
+                                  </h3>
+                                </div>
+                              ))}
+
+                            {sessionSpeakers
+                              .filter((speaker) =>
+                                speaker.Sessions.includes(item.system.id)
+                              )
+                              .map((speaker, speakerIndex) => (
+                                <div
+                                  key={speaker.ItemID}
+                                  className=""
+                                  onClick={() => openPopup(speaker)}
+                                >
+                                  <div className="w-16 h-16  mb-3 m-auto">
+                                    <img
+                                      src={speaker.Image}
+                                      alt={`${speaker.FirstName} ${speaker.LastName}`}
+                                      className="w-16 h-16 rounded-full object-cover border"
+                                    />
+                                  </div>
+                                  <h3 className="font-semibold text-sm">
+                                    {speaker.FirstName} {speaker.LastName}
+                                  </h3>
+                                </div>
+                              ))}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -127,6 +212,12 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
           ))}
         </div>
       </div>
+
+      <SpeakerPopupBanner
+        speaker={selectedSpeaker}
+        isOpen={isPopupOpen}
+        onClose={closePopup}
+      />
     </section>
   );
 };
