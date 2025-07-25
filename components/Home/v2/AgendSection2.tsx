@@ -151,29 +151,6 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
                                   </h3>
                                 </div>
                               ))}
-
-                            {sessionSpeakers
-                              .filter((speaker) =>
-                                speaker.Sessions.includes(item.system.id)
-                              )
-                              .map((speaker, speakerIndex) => (
-                                <div
-                                  key={speaker.ItemID}
-                                  className=""
-                                  onClick={() => openPopup(speaker)}
-                                >
-                                  <div className="w-16 h-16  mb-3 m-auto">
-                                    <img
-                                      src={speaker.Image}
-                                      alt={`${speaker.FirstName} ${speaker.LastName}`}
-                                      className="w-16 h-16 rounded-full object-cover border"
-                                    />
-                                  </div>
-                                  <h3 className="font-semibold text-sm">
-                                    {speaker.FirstName} {speaker.LastName}
-                                  </h3>
-                                </div>
-                              ))}
                           </div>
                         </div>
                       </div>
