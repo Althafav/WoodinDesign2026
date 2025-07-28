@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import LayoutComponent from "@/components/Layout/LayoutComponent";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -23,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <Component {...pageProps} />
       <Analytics />
+      <SpeedInsights />
     </LayoutComponent>
   );
 }
