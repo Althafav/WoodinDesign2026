@@ -103,9 +103,9 @@ export default function Page({ pageData }: PageProps) {
           <TargetAudientSection pageData={pageData} />
           <WhyAttendSection pageData={pageData} />
           <SaudiVisionSection pageData={pageData} />
+          <SpeakerCarousel />
           <AgendaSection2 pageData={pageData} />
           <WorkshopSection2 pageData={pageData} />
-           <SpeakerCarousel />
           <AwardSection2 pageData={pageData} />
           <UpcomingSection2 pageData={pageData} />
         </div>
