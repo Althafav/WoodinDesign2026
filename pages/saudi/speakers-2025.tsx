@@ -50,7 +50,7 @@ export default function SpeakersPage() {
                   height={400}
                   src={speaker.Image}
                   alt={`${speaker.FirstName} ${speaker.LastName}`}
-                  className="w-full h-full object-cover border border-gray-200"
+                  className="w-full h-full object-cover object-top border border-gray-200"
                   onError={(e) => (e.currentTarget.src = "/default-avatar.jpg")}
                 />
               </div>
