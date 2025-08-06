@@ -661,76 +661,103 @@ window._load_script = function (url, callback, isSubmit) {
 
       /////Monday PUSH API Starts/////
       var interest = $('input[name="field[318][]"]:checked')
-        .map(function () {
-          return $(this).val();
-        })
-        .get()
-        .join('\\",\\"');
+                .map(function () {
+                    return $(this).val();
+                })
+                .get();
 
-      interest = `\\\"${interest}\\\"`;
+            var firstname = $('input[name="firstname"]').val();
+            var lastname = $('input[name="lastname"]').val();
+            var name = `${firstname} ${lastname}`;
+            var organization = $('input[name="customer_account"]').val();
+            var email = $('input[name="email"]').val();
+            var jobTitle = $('input[name="field[23]"]').val();
 
-      var firstname = $('input[name="firstname"]').val();
-      var lastname = $('input[name="lastname"]').val();
-      var name = `${firstname} ${lastname}`;
-      var organization = $('input[name="customer_account"]').val();
-      var email = $('input[name="email"]').val();
-      var jobTitle = $('input[name="field[23]"]').val();
-      var mobileNumber = Number($('input[name="field[12]"]').val());
-      var phoneCode = $('select[name="phoneCode"]').val();
-      var mobileText = `+${phoneCode} ${mobileNumber}`;
-      var message = $('textarea[name="field[6]"]').val();
-      if (message == undefined || message == "") {
-        message = "N/A";
-      }
-      if (message) {
-        message = message.replaceAll("/", " ");
-        message = message.replaceAll("\n", " ");
-        message = message.replaceAll("\\", " ");
-      }
-      var country = $('select[name="field[3]"]').val();
-      var formSubmitted = $('input[name="field[38]"]').val();
-      var itemName = name;
-      var leadType = "SWS Lead";
-      debugger;
-      const mutation = `mutation {
-              create_item(
-                  board_id: 7268050149, 
-                  group_id: \"new_group63455__1\", 
-                  item_name: \"${itemName}\", 
-                  column_values: \"{
-                      \\\"lead_status\\\":\\\"New Lead\\\",
-                      \\\"name\\\":\\\"${name}\\\",
-                      \\\"status_1__1\\\":\\\"${leadType}\\\",
-                      \\\"country____1\\\":\\\"${country}\\\",
-                      \\\"text2__1\\\":\\\"${jobTitle}\\\",
-                      \\\"lead_email\\\":{\\\"email\\\":\\\"${email}\\\",\\\"text\\\":\\\"${email}\\\"},
-                      \\\"dup__of_mobile8__1\\\":\\\"${mobileText}\\\",
-                      \\\"long_text__1\\\":\\\"${message}\\\",
-                      \\\"lead_company\\\":\\\"${organization}\\\",
-                      \\\"interested_in____1\\\":{\\\"labels\\\":[${interest}]},
-                      \\\"text49__1\\\":\\\"${formSubmitted}\\\"}\") 
-                      {id}}`;
+            var mobileNumber = $('input[name="field[12]"]').val();
+            var phoneCode = $('select[name="phoneCode"]').val();
+            var mobileText = `+${phoneCode} ${mobileNumber}`;
 
-      var settings = {
-        url: "https://api.monday.com/v2",
-        method: "POST",
-        timeout: 0,
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjM4NTQxMTI2OSwiYWFpIjoxMSwidWlkIjo2MzU5NDg5MywiaWFkIjoiMjAyNC0wNy0xN1QwODo1MjoxNS4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjQ0NzAwNjQsInJnbiI6InVzZTEifQ.mFBBbSdTcCTF0iU8hYFDLoLmZQHnLjNoMFk7d6dUYTk",
-          "Content-Type": "application/json",
-          "API-version": "2023-10",
-          Cookie:
-            "__cf_bm=r0lDqnsvWXGmEVZofHvAkLCnjKGaQHExYQIA3u5ciPM-1724733381-1.0.1.1-bI9CMjAqfTjUdQqfXj.oAiHL_qz4RqFtgO57jrTNDhohtQkE5lrc0yvFTrLgoWpDkaj4JepFQjm7svliN.EIpDHm6yeqLtgFIZXc86Ni1.c",
-        },
-        data: JSON.stringify({
-          query: mutation,
-        }),
-      };
+            var country = $('select[name="field[3]"]').val();
 
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
+            var message = $('textarea[name="field[6]"]').val();
+
+            var formSubmitted = $('input[name="field[38]"]').val();
+
+            let columns = [
+                {
+                    label: "name",
+                    type: "text",
+                    value: name,
+                    list_value: []
+                },
+                {
+                    label: "lead_company",
+                    type: "text",
+                    value: organization,
+                    list_value: []
+                },
+                 {
+                    label: "text2__1",
+                    type: "text",
+                    value: jobTitle,
+                    list_value: []
+                },
+                  {
+                    label: "dup__of_mobile8__1",
+                    type: "text",
+                    value: mobileText,
+                    list_value: []
+                },
+                {
+                    label: "country____1",
+                    type: "text",
+                    value: country,
+                    list_value: []
+                },
+                {
+                    label: "text49__1",
+                    type: "text",
+                    value: formSubmitted,
+                    list_value: []
+                },
+                {
+                    label: "long_text__1",
+                    type: "text",
+                    value: message,
+                    list_value: []
+                },
+                {
+                    label: "interested_in____1",
+                    type: "checkbox",
+                    value: "",
+                    list_value: interest
+                },
+            ];
+
+            // Dynamic data object
+            let requestData = {
+                lead_type: "SWS Lead",
+                group_id: "topics",
+                lead_status: "New Lead",
+                board_id: "7268050149",
+                item_name: name,
+                email: email,
+                column_values: columns
+            };
+
+            // AJAX request
+            $.ajax({
+                url: "https://payment.aimcongress.com/api/generic/MondayPush",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(requestData),
+                success: function (response) {
+                    console.log("Success:", response);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error:", error);
+                }
+            });
 
       /////Monday PUSH API Ends/////
     }
