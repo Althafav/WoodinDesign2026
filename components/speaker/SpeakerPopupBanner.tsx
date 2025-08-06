@@ -2,6 +2,7 @@ import React from "react";
 import conferenceSpeakerModel2025 from "@/sysModels/speakers2025";
 import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
+import Helper from "@/modules/Helper";
 
 interface Props {
   speaker: conferenceSpeakerModel2025 | null;
@@ -28,7 +29,7 @@ const SpeakerPopupBanner: React.FC<Props> = ({ speaker, onClose, isOpen }) => {
           <img
             src={speaker.Image}
             alt={`${speaker.FirstName} ${speaker.LastName}`}
-            className="w-full h-full object-cover border border-gray-300"
+            className="w-full h-full object-cover object-top border border-gray-300"
             onError={(e) => (e.currentTarget.src = "/default-avatar.jpg")}
           />
         </div>
@@ -51,7 +52,7 @@ const SpeakerPopupBanner: React.FC<Props> = ({ speaker, onClose, isOpen }) => {
         <div className="flex justify-center space-x-4 mt-4">
           {speaker.Linkedin.length > 1 && (
             <Link
-              href={speaker.Linkedin}
+              href={Helper.formatUrl(speaker.Linkedin)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -60,7 +61,7 @@ const SpeakerPopupBanner: React.FC<Props> = ({ speaker, onClose, isOpen }) => {
           )}
           {speaker.Facebook.length > 1 && (
             <Link
-              href={speaker.Facebook}
+              href={Helper.formatUrl(speaker.Facebook)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -69,7 +70,7 @@ const SpeakerPopupBanner: React.FC<Props> = ({ speaker, onClose, isOpen }) => {
           )}
           {speaker.Instagram.length > 1 && (
             <Link
-              href={speaker.Instagram}
+              href={Helper.formatUrl(speaker.Instagram)}
               target="_blank"
               rel="noopener noreferrer"
             >
