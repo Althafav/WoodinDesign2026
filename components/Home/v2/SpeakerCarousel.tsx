@@ -25,6 +25,67 @@ export default function SpeakerCarousel() {
   }, []);
 
   return (
+    <>
+     <div>
+      {speakers.length > 0 && (
+        <div className="py-20 bg-gray-100" style={{paddingBottom: 0}}>
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              Featured Speakers
+            </h2>
+
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1}
+              autoplay={{ delay: 4000 }}
+              breakpoints={{
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 4 },
+              }}
+            >
+              {speakers.slice(0, 20).map((speaker) => (
+                 speaker.HighLevel == true &&(
+                <SwiperSlide key={speaker.ItemID}>
+                  <div className="bg-white rounded-xl overflow-hidden shadow-md p-6 text-center min-h-[300px] flex flex-col items-center">
+                    {/* Square image container */}
+                    <div className="w-40 h-40 mb-4">
+                      <img
+                        src={speaker.Image}
+                        alt={`${speaker.FirstName} ${speaker.LastName}`}
+                        className="w-full h-full object-cover object-top border-2 border-gray-300"
+                        onError={(e) =>
+                          (e.currentTarget.src = "")
+                        } 
+                      />
+                    </div>
+                    <h3 className="text-lg font-semibold">
+                      {speaker.FirstName} {speaker.LastName}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {speaker.Designation}
+                    </p>
+                    <p className="text-sm text-gray-500">{speaker.Company}</p>
+                  </div>
+                </SwiperSlide>
+                 )
+              ))}
+            </Swiper>
+
+            <div className="flex items-center justify-center">
+              <Link
+                href="/saudi/speakers-2025"
+                className="text-center px-4 py-2 bg-primary-saudi rounded-full text-white"
+              >
+                <span>View All</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+
     <div>
       {speakers.length > 0 && (
         <div className="py-20 bg-gray-100">
@@ -45,6 +106,7 @@ export default function SpeakerCarousel() {
               }}
             >
               {speakers.slice(0, 20).map((speaker) => (
+                    speaker.HighLevel == false &&(
                 <SwiperSlide key={speaker.ItemID}>
                   <div className="bg-white rounded-xl overflow-hidden shadow-md p-6 text-center min-h-[300px] flex flex-col items-center">
                     {/* Square image container */}
@@ -52,7 +114,7 @@ export default function SpeakerCarousel() {
                       <img
                         src={speaker.Image}
                         alt={`${speaker.FirstName} ${speaker.LastName}`}
-                        className="w-full h-full object-cover border-2 border-gray-300"
+                        className="w-full h-full object-cover object-top border-2 border-gray-300"
                         onError={(e) =>
                           (e.currentTarget.src = "")
                         } 
@@ -67,6 +129,7 @@ export default function SpeakerCarousel() {
                     <p className="text-sm text-gray-500">{speaker.Company}</p>
                   </div>
                 </SwiperSlide>
+                    )
               ))}
             </Swiper>
 
@@ -82,5 +145,6 @@ export default function SpeakerCarousel() {
         </div>
       )}
     </div>
+    </>
   );
 }
