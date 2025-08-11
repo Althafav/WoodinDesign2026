@@ -25,7 +25,7 @@ export default function SpeakerCarousel() {
   }, []);
 
   return (
-    <>
+    <div id="speakers">
      <div>
       {speakers.length > 0 && (
         <div className="py-20 bg-gray-100" style={{paddingBottom: 0}}>
@@ -48,7 +48,7 @@ export default function SpeakerCarousel() {
               {speakers.slice(0, 20).map((speaker) => (
                  speaker.HighLevel == true &&(
                 <SwiperSlide key={speaker.ItemID}>
-                  <div className="bg-white rounded-xl overflow-hidden shadow-md p-6 text-center min-h-[300px] flex flex-col items-center">
+                  <div className="bg-white rounded-xl overflow-hidden shadow-md p-6 text-center h-[300px] flex flex-col items-center">
                     {/* Square image container */}
                     <div className="w-40 h-40 mb-4">
                       <img
@@ -63,10 +63,10 @@ export default function SpeakerCarousel() {
                     <h3 className="text-lg font-semibold">
                       {speaker.FirstName} {speaker.LastName}
                     </h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs text-gray-600">
                       {speaker.Designation}
                     </p>
-                    <p className="text-sm text-gray-500">{speaker.Company}</p>
+                    <p className="text-xs text-gray-500">{speaker.Company}</p>
                   </div>
                 </SwiperSlide>
                  )
@@ -108,7 +108,7 @@ export default function SpeakerCarousel() {
               {speakers.slice(0, 20).map((speaker) => (
                     speaker.HighLevel == false &&(
                 <SwiperSlide key={speaker.ItemID}>
-                  <div className="bg-white rounded-xl overflow-hidden shadow-md p-6 text-center min-h-[300px] flex flex-col items-center">
+                  <div className="bg-white rounded-xl overflow-hidden shadow-md p-6 text-center h-[300px] flex flex-col items-center">
                     {/* Square image container */}
                     <div className="w-40 h-40 mb-4">
                       <img
@@ -123,10 +123,10 @@ export default function SpeakerCarousel() {
                     <h3 className="text-lg font-semibold">
                       {speaker.FirstName} {speaker.LastName}
                     </h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs text-gray-600">
                       {speaker.Designation}
                     </p>
-                    <p className="text-sm text-gray-500">{speaker.Company}</p>
+                    <p className="text-xs text-gray-500">{speaker.Company}</p>
                   </div>
                 </SwiperSlide>
                     )
@@ -145,6 +145,6 @@ export default function SpeakerCarousel() {
         </div>
       )}
     </div>
-    </>
+    </div>
   );
 }

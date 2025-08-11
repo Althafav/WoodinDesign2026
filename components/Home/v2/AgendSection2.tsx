@@ -65,7 +65,7 @@ const AgendaSection2: React.FC<PageDataProps> = ({ pageData }) => {
     if (selected) setSelectedAgenda(selected);
   };
   return (
-    <section className=" px-4 relative">
+    <section className=" px-4 relative" id="agenda">
       <div
         className={`absolute ${
           locale === "ar" ? "left" : "right"
