@@ -38,7 +38,7 @@ const AwardSection2: React.FC<PageDataProps> = ({ pageData }) => {
       <div className="relative z-10 container mx-auto px-4">
         <div className="">
           {/* Header */}
-          <div className="text-left mb-16 w-full lg:w-1/2">
+          <div className=" mb-16 w-full lg:w-1/2">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl award-section-heading-1 mb-6 font-bold">
               {pageData.awardheading.value}
             </h2>
